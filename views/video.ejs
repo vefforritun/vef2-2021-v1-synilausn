@@ -1,0 +1,19 @@
+<%- include('header') -%>
+
+  <header class="header">
+    <h1 class="header__title"><%= video.title %></h1>
+  </header>
+
+  <main>
+    <div class="player">
+      <div class="player__container">
+        <video controls class="player__video" src="<%= video.video %>" poster="<%= video.poster %>"></video>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="video__content"><%= video.description %></div>
+      <a href="/" class="controls__back">Til baka</a>
+    </div>
+  </main>
+
+<%- include('footer') -%>

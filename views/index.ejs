@@ -1,0 +1,32 @@
+<%- include('header') -%>
+
+<header class="header">
+  <h1 class="header__title"><%= title %></h1>
+</header>
+
+<main class="videos">
+  <% categories.forEach((category) => { %>
+    <h2 class="videos__title"><%= category.title %></h2>
+    <div class="videos__row">
+      <% category.videos.forEach((video) => { %>
+        <div class="videos__col">
+          <a class="video" href="/<%= video.id %>">
+            <div class="video">
+              <div class="video__image">
+                <img class="video__img" src="<%= video.poster %>" alt="">
+                <div class="video__duration"><%= formatDuration(video.duration) %></div>
+              </div>
+              <div class="video__content">
+                <h3 class="video__title"><%= video.title %></h3>
+                <p class="video__age"><%= formatAge(video.created) %></p>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+
+  <% }) %>
+</main>
+
+<%- include('footer') -%>

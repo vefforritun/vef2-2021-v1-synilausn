@@ -1,0 +1,38 @@
+@import './config';
+
+.video {
+  color: #333;
+  overflow: hidden;
+  text-decoration: none;
+  width: 100%;
+
+  &__image {
+    margin-bottom: $gutter / 2;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &::before { // stylelint-disable-line
+      content: '';
+      display: block;
+      padding-top: 56.25%;
+    }
+  }
+
+  &__img {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__duration {
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 14px;
+    color: #fff;
+    padding: 2px 8px;
+    position: absolute;
+    right: 4px;
+  }
+}
