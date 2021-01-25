@@ -11,19 +11,19 @@ export function formatAge(age) {
   const secs = Math.floor((new Date().getTime() - age) / 1000);
 
   const years = Math.floor(secs / (60 * 60 * 24 * 365));
-  if (years > 1) {
+  if (years >= 1) {
     const yearString = years === 1 ? 'ári' : 'árum';
     return `Fyrir ${years} ${yearString} síðan`;
   }
 
   const months = Math.floor((secs - years) / (60 * 60 * 24 * 30));
-  if (months > 1) {
+  if (months >= 1) {
     const monthString = months === 1 ? 'mánuði' : 'mánuðum';
     return `Fyrir ${months} ${monthString} síðan`;
   }
 
   const weeks = Math.floor((secs - months) / (60 * 60 * 24 * 7));
-  if (weeks > 1) {
+  if (weeks >= 1) {
     const weeksString = weeks === 1 ? 'viku' : 'vikum';
     return `Fyrir ${weeks} ${weeksString} síðan`;
   }
