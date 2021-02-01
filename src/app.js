@@ -1,16 +1,17 @@
 import express from 'express';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 import { router as videoRouter } from './videos.js';
 import { formatAge, formatDuration } from './lib/format.js';
 
 const app = express();
 
-//
-const publicPath = new URL('../public', import.meta.url).pathname;
-app.use(express.static(publicPath));
+const path = dirname(fileURLToPath(import.meta.url));
 
-const viewsPath = new URL('../views', import.meta.url).pathname;
-app.set('views', viewsPath);
+app.use(express.static(join(path, '../public')));
+
+app.set('views', join(path, '../views'));
 app.set('view engine', 'ejs');
 
 app.locals.formatAge = formatAge;
